@@ -2,6 +2,7 @@ language: python
 python:
   - "3.5"
 cache: pip
+env: DJANGO_SETTINGS_MODULE="purbeurreV2.travis.py"
 services:
   - postgresql
 before_script:
