@@ -15,7 +15,8 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
-
+purbeurre/settings/production.py
+.setting/production.py
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries

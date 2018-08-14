@@ -13,6 +13,7 @@ from food_and_search.models import Categorie, Product, SignUpForm
 
 # View for index.html
 def index(request):
+
     return render(request, 'index.html')
 
 
