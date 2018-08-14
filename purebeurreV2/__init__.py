@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'purebeurreV2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # on utilise l'adaptateur postgresql
-        'NAME': 'purbeurre_1208',  # le nom de notre base de donnees creee precedemment
-        'USER': 'purbeurre32303138',  # attention : remplacez par votre nom d'utilisateur
-        'PASSWORD': '@##Purebeurre2018##@',
-        'HOST': '10.24.8.123',
+        'NAME': 'test_db',  # le nom de notre base de donnees creee precedemment
+        'USER': 'postgres',  # attention : remplacez par votre nom d'utilisateur
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
