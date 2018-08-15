@@ -20,6 +20,12 @@ class Command(BaseCommand):
             dest='charge_database',
             help='To load the database or use',
         )
+        parser.add_argument(
+            '--updatedatabase',
+            action='store_true',
+            dest='update_database',
+            help='To update the database or use',
+        )
 
     def handle(self, *args, **options):
         if options['charge_database']:
