@@ -9,7 +9,7 @@ from unittest import mock
 class ProductTestCase(TestCase):
     #Creating objects in database for the tests
     def setUp(self):
-        self.fruit = Categorie.objects.create(name='fruit', id_category='fruit_id')
+        self.fruit = Categorie.objects.create(name='fruit', id_category='fruit_id', code=1)
         self.pomme = Product.objects.create(name="pomme",
                                             id=1,
                                             description="une pomme",
@@ -18,7 +18,8 @@ class ProductTestCase(TestCase):
                                             carbohydrates_100g='9.9',
                                             energy_100g='9.9',
                                             sugars_100g='9.9',
-                                            sodium_100g='9.9')
+                                            sodium_100g='9.9',
+                                            code=1)
         self.poire = Product.objects.create(name="poire",
                                             id=2,
                                             description="une poire",
@@ -27,7 +28,8 @@ class ProductTestCase(TestCase):
                                             carbohydrates_100g='9.9',
                                             energy_100g='9.9',
                                             sugars_100g='9.9',
-                                            sodium_100g='9.9')
+                                            sodium_100g='9.9',
+                                            code=2)
         self.bananne = Product.objects.create(name="bananne",
                                               id=3,
                                               description="une bananne",
@@ -36,7 +38,8 @@ class ProductTestCase(TestCase):
                                               carbohydrates_100g='9.9',
                                               energy_100g='9.9',
                                               sugars_100g='9.9',
-                                              sodium_100g='9.9')
+                                              sodium_100g='9.9',
+                                              code=3)
         self.cerise = Product.objects.create(name="cerise",
                                              id=4,
                                              description="une cerise",
@@ -45,7 +48,8 @@ class ProductTestCase(TestCase):
                                              carbohydrates_100g='9.9',
                                              energy_100g='9.9',
                                              sugars_100g='9.9',
-                                             sodium_100g='9.9')
+                                             sodium_100g='9.9',
+                                             code=4)
         self.groseille = Product.objects.create(name="groseille",
                                                 id=5,
                                                 description="une groseille",
@@ -54,7 +58,8 @@ class ProductTestCase(TestCase):
                                                 carbohydrates_100g='9.9',
                                                 energy_100g='9.9',
                                                 sugars_100g='9.9',
-                                                sodium_100g='9.9')
+                                                sodium_100g='9.9',
+                                                code=5)
         self.mangue = Product.objects.create(name="mangue",
                                              id=6,
                                              description="une mangue",
@@ -63,7 +68,8 @@ class ProductTestCase(TestCase):
                                              carbohydrates_100g='9.9',
                                              energy_100g='9.9',
                                              sugars_100g='9.9',
-                                             sodium_100g='9.9')
+                                             sodium_100g='9.9',
+                                             code=6)
         self.ananas = Product.objects.create(name="ananas",
                                              id=7,
                                              description="un ananas",
@@ -72,7 +78,8 @@ class ProductTestCase(TestCase):
                                              carbohydrates_100g='9.9',
                                              energy_100g='9.9',
                                              sugars_100g='9.9',
-                                             sodium_100g='9.9')
+                                             sodium_100g='9.9',
+                                             code=7)
         self.pomme.categorie.add(self.fruit)
         self.ananas.categorie.add(self.fruit)
         self.bananne.categorie.add(self.fruit)
