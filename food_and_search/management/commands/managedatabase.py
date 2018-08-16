@@ -1,5 +1,5 @@
 from multiprocessing.dummy import Pool
-
+from multiprocessing import cpu_count
 from django.core.management.base import BaseCommand
 
 import os
@@ -19,12 +19,6 @@ class Command(BaseCommand):
             action='store_true',
             dest='charge_database',
             help='To load the database or use',
-        )
-        parser.add_argument(
-            '--updatedatabase',
-            action='store_true',
-            dest='update_database',
-            help='To update the database or use',
         )
 
     def handle(self, *args, **options):
@@ -48,9 +42,8 @@ class Command(BaseCommand):
             for categories in categories_dic['tags']:
                 if int(categories['products']) > 10 and len(categories['name']) < 150 and str(
                         categories['name']).lower() != str(categories['id']).lower():
-                    categorie_add = Categorie(name=categories['name'],
+                    categorie_add = Categorie.objects.get_or_create(name=categories['name'],
                                               id_category=categories['id'])
-                    categorie_add.save()
                     count += 1
 
                 else:
@@ -101,7 +94,7 @@ class Command(BaseCommand):
                                     and 'categories_tags' in product.keys() \
                                     and 1 <= len(product['product_name_fr']) <= 100:
                                 try:
-                                    add_product = Product(name=product['product_name_fr'],
+                                    add_product, created = Product.objects.get_or_create(id_singularity=int(product['code']),name=product['product_name_fr'],
                                                           description=product['ingredients_text_fr'],
                                                           nutrition_grade=product['nutrition_grades'],
                                                           link_http=product['url'],
@@ -115,13 +108,13 @@ class Command(BaseCommand):
                                                           sodium_100g=product['nutriments']['sodium_100g'],
 
                                                           )
-                                    add_product.save()
-                                    for categorie in product['categories_tags']:
-                                        try:
-                                            add_categorie = Categorie.objects.get(id_category=str(categorie))
-                                            add_product.categorie.add(add_categorie)
-                                        except:
-                                            add_product.delete()
+                                    if created :
+                                        for categorie in product['categories_tags']:
+                                            try:
+                                                add_categorie = Categorie.objects.get(id_category=str(categorie))
+                                                add_product.categorie.add(add_categorie)
+                                            except:
+                                                add_product.delete()
 
 
                                 except KeyError:
@@ -136,7 +129,7 @@ class Command(BaseCommand):
 
                     return count_and_end_page_return_all
 
-                p = Pool()
+                p = Pool(cpu_count())
                 articles_list_all_pool = p.map(function_recovery_and_push, list_page_for_pool)
                 p.close()
 

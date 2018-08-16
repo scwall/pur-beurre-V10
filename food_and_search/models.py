@@ -13,13 +13,14 @@ from django.contrib.auth.forms import UserCreationForm
 class Categorie(models.Model):
     name = models.CharField(max_length=150)
     id_category = models.CharField(max_length=200)
-    code = models.IntegerField()
+
 
     def __str__(self):
         return self.name
 
 
 class Product(models.Model):
+    id_singularity = models.BigIntegerField()
     user_product = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='favourite_product')
     categorie = models.ManyToManyField(Categorie, related_name='products')
     name = models.CharField(max_length=150)
@@ -32,7 +33,7 @@ class Product(models.Model):
     energy_100g = models.FloatField(null=True)
     sugars_100g = models.FloatField(null=True)
     sodium_100g = models.FloatField(null=True)
-    code = models.IntegerField()
+
     def __str__(self):
         return self.name
 
