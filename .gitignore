@@ -66,4 +66,4 @@ food_and_search/management/commands/__pycache__/
 food_and_search/migrations/
 htmlcov
 purebeurreV2/__pycache__/
-.newrelic
+newrelic
