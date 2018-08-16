@@ -10,7 +10,7 @@ class ProductTestCase(TestCase):
     #Creating objects in database for the tests
     def setUp(self):
         self.fruit = Categorie.objects.create(name='fruit', id_category='fruit_id', code=1)
-        self.pomme = Product.objects.create(name="pomme",
+        self.pomme = Product.objects.create(id_singularity=1,name="pomme",
                                             id=1,
                                             description="une pomme",
                                             nutrition_grade='a',
@@ -20,7 +20,7 @@ class ProductTestCase(TestCase):
                                             sugars_100g='9.9',
                                             sodium_100g='9.9',
                                             code=1)
-        self.poire = Product.objects.create(name="poire",
+        self.poire = Product.objects.create(id_singularity=2,name="poire",
                                             id=2,
                                             description="une poire",
                                             nutrition_grade='a',
@@ -30,7 +30,7 @@ class ProductTestCase(TestCase):
                                             sugars_100g='9.9',
                                             sodium_100g='9.9',
                                             code=2)
-        self.bananne = Product.objects.create(name="bananne",
+        self.bananne = Product.objects.create(id_singularity=3,name="bananne",
                                               id=3,
                                               description="une bananne",
                                               nutrition_grade='a',
@@ -40,7 +40,7 @@ class ProductTestCase(TestCase):
                                               sugars_100g='9.9',
                                               sodium_100g='9.9',
                                               code=3)
-        self.cerise = Product.objects.create(name="cerise",
+        self.cerise = Product.objects.create(id_singularity=4,name="cerise",
                                              id=4,
                                              description="une cerise",
                                              nutrition_grade='a',
@@ -50,7 +50,7 @@ class ProductTestCase(TestCase):
                                              sugars_100g='9.9',
                                              sodium_100g='9.9',
                                              code=4)
-        self.groseille = Product.objects.create(name="groseille",
+        self.groseille = Product.objects.create(id_singularity=5,name="groseille",
                                                 id=5,
                                                 description="une groseille",
                                                 nutrition_grade='a',
@@ -60,7 +60,7 @@ class ProductTestCase(TestCase):
                                                 sugars_100g='9.9',
                                                 sodium_100g='9.9',
                                                 code=5)
-        self.mangue = Product.objects.create(name="mangue",
+        self.mangue = Product.objects.create(id_singularity=6,name="mangue",
                                              id=6,
                                              description="une mangue",
                                              nutrition_grade='a',
@@ -70,7 +70,7 @@ class ProductTestCase(TestCase):
                                              sugars_100g='9.9',
                                              sodium_100g='9.9',
                                              code=6)
-        self.ananas = Product.objects.create(name="ananas",
+        self.ananas = Product.objects.create(id_singularity=7,name="ananas",
                                              id=7,
                                              description="un ananas",
                                              nutrition_grade='a',
