@@ -7,6 +7,10 @@ import sys
 import time
 import requests
 from food_and_search.models import Categorie, Product
+import setproctitle
+import time
+
+
 
 
 class Command(BaseCommand):
@@ -23,6 +27,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         if options['charge_database']:
+            setproctitle.setproctitle('saluttoi')
             self.stdout.write("charge database\n")
             #function to clear screen and calculate the progression percentage
             def clr():
