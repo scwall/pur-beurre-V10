@@ -27,7 +27,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         if options['charge_database']:
-            setproctitle.setproctitle('managedatabase')
+            setproctitle.setproctitle('chargedatabase')
             self.stdout.write("charge database\n")
             #function to clear screen and calculate the progression percentage
             def clr():
