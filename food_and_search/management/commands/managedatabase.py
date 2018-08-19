@@ -28,7 +28,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if options['charge_database']:
             setproctitle.setproctitle('chargedatabase')
-            self.stdout.write("charge database\n")
+            sys.stdout.write("charge database\n")
             #function to clear screen and calculate the progression percentage
             def clr():
                 os.system('clr' if os.name == 'nt' else 'clear')
@@ -38,12 +38,12 @@ class Command(BaseCommand):
 
             #Recovery the categories of openfoodfacts
             count = 0
-            self.stdout.write("Login to openfoodfact website\n")
-            self.stdout.flush()
+            sys.stdout.write("Login to openfoodfact website\n")
+            sys.stdout.flush()
             categories_json = requests.get("https://fr.openfoodfacts.org/categories.json")
-            self.stdout.flush()
-            self.stdout.write("Successful login to the openfoodfact website\n")
-            self.stdout.flush()
+            sys.stdout.flush()
+            sys.stdout.write("Successful login to the openfoodfact website\n")
+            sys.stdout.flush()
             if os.environ.get('ENV') != 'CRON':
                 clr()
             categories_dic = categories_json.json()
@@ -58,16 +58,16 @@ class Command(BaseCommand):
                 else:
                     count += 1
                 if os.environ.get('ENV') != 'CRON':
-                    self.stdout.write("\rCategory Recovery, " + str(percentage_calculation(count, total_count)) + "%" +
+                    sys.stdout.write("\rCategory Recovery, " + str(percentage_calculation(count, total_count)) + "%" +
                                       " d'effectué(s)\r")
-                    self.stdout.flush()
-            self.stdout.write("\rRecovering successful categories\r")
-            self.stdout.flush()
+                    sys.stdout.flush()
+            sys.stdout.write("\rRecovering successful categories\r")
+            sys.stdout.flush()
             time.sleep(2)
 
             # recovery products of the openfoodfacts
-            self.stdout.write("\rProduct recovery\r")
-            self.stdout.flush()
+            sys.stdout.write("\rProduct recovery\r")
+            sys.stdout.flush()
             count = 0
             total_count = 0
             final_page = False
@@ -152,16 +152,16 @@ class Command(BaseCommand):
                         if article['final_page'] is True:
                             final_page = article['final_page']
                 if os.environ.get('ENV') != 'CRON':
-                    self.stdout.write(
+                    sys.stdout.write(
                         "\rProduct recovery, " + str(percentage_calculation(count, total_count)) + "%" + " done \r")
-                    self.stdout.flush()
+                    sys.stdout.flush()
                 range_list[0] += 20
                 range_list[1] += 20
                 if os.environ.get('ENV') != 'CRON':
-                    self.stdout.write(
+                    sys.stdout.write(
                         "\rProduct recovery, " + str(percentage_calculation(count, total_count)) + "%" + " done \r")
-                    self.stdout.flush()
-            self.stdout.write("\rRecovering successful product\r")
-            self.stdout.flush()
+                    sys.stdout.flush()
+            sys.stdout.write("\rRecovering successful product\r")
+            sys.stdout.flush()
 
 
