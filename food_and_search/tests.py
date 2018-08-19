@@ -19,7 +19,7 @@ class ProductTestCase(TestCase):
                                             energy_100g='9.9',
                                             sugars_100g='9.9',
                                             sodium_100g='9.9',
-                                            code=1)
+                                            )
         self.poire = Product.objects.create(id_singularity=2,name="poire",
                                             id=2,
                                             description="une poire",
@@ -29,7 +29,7 @@ class ProductTestCase(TestCase):
                                             energy_100g='9.9',
                                             sugars_100g='9.9',
                                             sodium_100g='9.9',
-                                            code=2)
+                                            )
         self.bananne = Product.objects.create(id_singularity=3,name="bananne",
                                               id=3,
                                               description="une bananne",
@@ -39,7 +39,7 @@ class ProductTestCase(TestCase):
                                               energy_100g='9.9',
                                               sugars_100g='9.9',
                                               sodium_100g='9.9',
-                                              code=3)
+                                              )
         self.cerise = Product.objects.create(id_singularity=4,name="cerise",
                                              id=4,
                                              description="une cerise",
@@ -49,7 +49,7 @@ class ProductTestCase(TestCase):
                                              energy_100g='9.9',
                                              sugars_100g='9.9',
                                              sodium_100g='9.9',
-                                             code=4)
+                                             )
         self.groseille = Product.objects.create(id_singularity=5,name="groseille",
                                                 id=5,
                                                 description="une groseille",
@@ -59,7 +59,7 @@ class ProductTestCase(TestCase):
                                                 energy_100g='9.9',
                                                 sugars_100g='9.9',
                                                 sodium_100g='9.9',
-                                                code=5)
+                                                )
         self.mangue = Product.objects.create(id_singularity=6,name="mangue",
                                              id=6,
                                              description="une mangue",
@@ -69,7 +69,7 @@ class ProductTestCase(TestCase):
                                              energy_100g='9.9',
                                              sugars_100g='9.9',
                                              sodium_100g='9.9',
-                                             code=6)
+                                             )
         self.ananas = Product.objects.create(id_singularity=7,name="ananas",
                                              id=7,
                                              description="un ananas",
@@ -79,7 +79,7 @@ class ProductTestCase(TestCase):
                                              energy_100g='9.9',
                                              sugars_100g='9.9',
                                              sodium_100g='9.9',
-                                             code=7)
+                                             )
         self.pomme.categorie.add(self.fruit)
         self.ananas.categorie.add(self.fruit)
         self.bananne.categorie.add(self.fruit)
