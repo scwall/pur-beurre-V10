@@ -9,7 +9,7 @@ from unittest import mock
 class ProductTestCase(TestCase):
     #Creating objects in database for the tests
     def setUp(self):
-        self.fruit = Categorie.objects.create(name='fruit', id_category='fruit_id', code=1)
+        self.fruit = Categorie.objects.create(name='fruit', id_category='fruit_id')
         self.pomme = Product.objects.create(id_singularity=1,name="pomme",
                                             id=1,
                                             description="une pomme",
