@@ -61,12 +61,12 @@ class Command(BaseCommand):
                     sys.stdout.write("\rCategory Recovery, " + str(percentage_calculation(count, total_count)) + "%" +
                                       " d'effectué(s)\r")
                     sys.stdout.flush()
-            sys.stdout.write("\rRecovering successful categories\r")
+            sys.stdout.write("Recovering successful categories")
             sys.stdout.flush()
             time.sleep(2)
 
             # recovery products of the openfoodfacts
-            sys.stdout.write("\rProduct recovery\r")
+            sys.stdout.write("Product recovery")
             sys.stdout.flush()
             count = 0
             total_count = 0
@@ -161,7 +161,7 @@ class Command(BaseCommand):
                     sys.stdout.write(
                         "\rProduct recovery, " + str(percentage_calculation(count, total_count)) + "%" + " done \r")
                     sys.stdout.flush()
-            sys.stdout.write("\rRecovering successful product\r")
+            sys.stdout.write("Recovering successful product")
             sys.stdout.flush()
 
 
