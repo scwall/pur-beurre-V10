@@ -16,27 +16,26 @@ DATABASES = {
 }
 
 INSTALLED_APPS += [
-<<<<<<< HEAD
+
     	'raven.contrib.django.raven_compat',
-=======
+
         'raven.contrib.django.raven_compat',
->>>>>>> 2b998f1ccfc2618339b4cf098a85fcb011a177c3
+
 ]
 
 
 RAVEN_CONFIG = {
-<<<<<<< HEAD
+
    'dsn': 'https://226d019280ce4c61b455b8ea89ea9b67:87c5e1e1f00543e48b8a7379b4423e1b@sentry.io/1261690', # caution replace by your own!!
     # If you are using git, you can also automatically configure the
     # release based on the git info.
     	'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
 
-=======
+
     'dsn': 'https://226d019280ce4c61b455b8ea89ea9b67:87c5e1e1f00543e48b8a7379b4423e1b@sentry.io/1261690', # caution replace by your own!!
     # If you are using git, you can also automatically configure the
     # release based on the git info.
     'release': raven.fetch_git_sha(os.path.dirname(__file__)),
->>>>>>> 2b998f1ccfc2618339b4cf098a85fcb011a177c3
 }
 
 LOGGING = {
