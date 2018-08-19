@@ -39,9 +39,13 @@ class Command(BaseCommand):
             #Recovery the categories of openfoodfacts
             count = 0
             self.stdout.write("Login to openfoodfact website\n")
+            self.stdout.flush()
             categories_json = requests.get("https://fr.openfoodfacts.org/categories.json")
+            self.stdout.flush()
             self.stdout.write("Successful login to the openfoodfact website\n")
-            clr()
+            self.stdout.flush()
+            if os.environ.get('ENV') != 'CRON':
+                clr()
             categories_dic = categories_json.json()
             total_count = categories_dic['count']
             for categories in categories_dic['tags']:
@@ -58,6 +62,7 @@ class Command(BaseCommand):
                                       " d'effectué(s)\r")
                     self.stdout.flush()
             self.stdout.write("\rRecovering successful categories\r")
+            self.stdout.flush()
             time.sleep(2)
 
             # recovery products of the openfoodfacts
