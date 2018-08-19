@@ -53,16 +53,16 @@ class Command(BaseCommand):
 
                 else:
                     count += 1
-
-                self.stdout.write("\rCategory Recovery, " + str(percentage_calculation(count, total_count)) + "%" +
-                                  " d'effectué(s)\r")
-                sys.stdout.flush()
+                if os.environ.get('ENV') != 'CRON':
+                    self.stdout.write("\rCategory Recovery, " + str(percentage_calculation(count, total_count)) + "%" +
+                                      " d'effectué(s)\r")
+                    self.stdout.flush()
             self.stdout.write("\rRecovering successful categories\r")
             time.sleep(2)
 
             # recovery products of the openfoodfacts
             self.stdout.write("\rProduct recovery\r")
-            sys.stdout.flush()
+            self.stdout.flush()
             count = 0
             total_count = 0
             final_page = False
@@ -146,15 +146,17 @@ class Command(BaseCommand):
 
                         if article['final_page'] is True:
                             final_page = article['final_page']
-
-                self.stdout.write(
-                    "\rProduct recovery, " + str(percentage_calculation(count, total_count)) + "%" + " done \r")
-                sys.stdout.flush()
+                if os.environ.get('ENV') != 'CRON':
+                    self.stdout.write(
+                        "\rProduct recovery, " + str(percentage_calculation(count, total_count)) + "%" + " done \r")
+                    self.stdout.flush()
                 range_list[0] += 20
                 range_list[1] += 20
-                self.stdout.write(
-                    "\rProduct recovery, " + str(percentage_calculation(count, total_count)) + "%" + " done \r")
-                sys.stdout.flush()
+                if os.environ.get('ENV') != 'CRON':
+                    self.stdout.write(
+                        "\rProduct recovery, " + str(percentage_calculation(count, total_count)) + "%" + " done \r")
+                    self.stdout.flush()
+            self.stdout.write("\rRecovering successful product\r")
+            self.stdout.flush()
 
-        if options['update_database']:
-            self.stdout.write('update database')
+
